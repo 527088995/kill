@@ -21,15 +21,15 @@ public class RedissonConfig {
     @Autowired
     private Environment env;
 
-    @Bean
-    public RedissonClient redissonClient(){
-        Config config=new Config();
-        config.useSingleServer()
-                .setAddress(env.getProperty("redis.config.host"))
-                .setPassword(env.getProperty("spring.redis.password"));
-        RedissonClient client=Redisson.create(config);
-        return client;
-    }
+//    @Bean
+//    public RedissonClient redissonClient(){
+//        Config config=new Config();
+//        config.useSingleServer()
+//                .setAddress(env.getProperty("redis.config.host"))
+//                .setPassword(env.getProperty("spring.redis.password"));
+//        RedissonClient client=Redisson.create(config);
+//        return client;
+//    }
 
 
 }

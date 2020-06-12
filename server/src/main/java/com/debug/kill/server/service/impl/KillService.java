@@ -205,8 +205,8 @@ public class KillService implements IKillService{
 
 
 
-    @Autowired
-    private RedissonClient redissonClient;
+//    @Autowired
+//    private RedissonClient redissonClient;
 
     /**
      * 商品秒杀核心业务逻辑的处理-redisson的分布式锁
@@ -219,31 +219,31 @@ public class KillService implements IKillService{
     public Boolean killItemV4(Integer killId, Integer userId) throws Exception {
         Boolean result=false;
 
-        final String lockKey=new StringBuffer().append(killId).append(userId).append("-RedissonLock").toString();
-        RLock lock=redissonClient.getLock(lockKey);
-
-        try {
-            Boolean cacheRes=lock.tryLock(30,10,TimeUnit.SECONDS);
-            if (cacheRes){
-                //TODO:核心业务逻辑的处理
-                if (itemKillSuccessMapper.countByKillUserId(killId,userId) <= 0){
-                    ItemKill itemKill=itemKillMapper.selectByIdV2(killId);
-                    if (itemKill!=null && 1==itemKill.getCanKill() && itemKill.getTotal()>0){
-                        int res=itemKillMapper.updateKillItemV2(killId);
-                        if (res>0){
-                            commonRecordKillSuccessInfo(itemKill,userId);
-
-                            result=true;
-                        }
-                    }
-                }else{
-                    throw new Exception("redisson-您已经抢购过该商品了!");
-                }
-            }
-        }finally {
-            lock.unlock();
-            //lock.forceUnlock();
-        }
+//        final String lockKey=new StringBuffer().append(killId).append(userId).append("-RedissonLock").toString();
+//        RLock lock=redissonClient.getLock(lockKey);
+//
+//        try {
+//            Boolean cacheRes=lock.tryLock(30,10,TimeUnit.SECONDS);
+//            if (cacheRes){
+//                //TODO:核心业务逻辑的处理
+//                if (itemKillSuccessMapper.countByKillUserId(killId,userId) <= 0){
+//                    ItemKill itemKill=itemKillMapper.selectByIdV2(killId);
+//                    if (itemKill!=null && 1==itemKill.getCanKill() && itemKill.getTotal()>0){
+//                        int res=itemKillMapper.updateKillItemV2(killId);
+//                        if (res>0){
+//                            commonRecordKillSuccessInfo(itemKill,userId);
+//
+//                            result=true;
+//                        }
+//                    }
+//                }else{
+//                    throw new Exception("redisson-您已经抢购过该商品了!");
+//                }
+//            }
+//        }finally {
+//            lock.unlock();
+//            //lock.forceUnlock();
+//        }
         return result;
     }
 

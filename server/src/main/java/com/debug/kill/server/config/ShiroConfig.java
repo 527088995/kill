@@ -38,6 +38,7 @@ public class ShiroConfig {
         bean.setSecurityManager(securityManager());
         bean.setLoginUrl("/to/login");
         bean.setUnauthorizedUrl("/unauth");
+        bean.setLoginUrl("/");
 
         Map<String, String> filterChainDefinitionMap=new HashMap<>();
         filterChainDefinitionMap.put("/to/login","anon");

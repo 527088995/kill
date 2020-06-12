@@ -33,7 +33,7 @@ public class ItemController {
     /**
      * 获取商品列表
      */
-    @RequestMapping(value = {"/","/index",prefix+"/list",prefix+"/index.html"},method = RequestMethod.GET)
+    @RequestMapping(value = {"/"},method = RequestMethod.GET)
     public String list(ModelMap modelMap){
         try {
             //获取待秒杀商品列表
