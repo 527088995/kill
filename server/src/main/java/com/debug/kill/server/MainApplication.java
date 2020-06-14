@@ -20,10 +20,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class MainApplication extends SpringBootServletInitializer{
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(MainApplication.class);
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(MainApplication.class,args);
