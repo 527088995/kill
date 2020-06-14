@@ -36,9 +36,14 @@ public class UserController {
      * 跳到登录页
      * @return
      */
-    @RequestMapping(value = {"/to/login","/unauth"})
+    @RequestMapping(value = {"/toLogin"})
     public String toLogin(){
         return prefix+"lw-log";
+    }
+
+    @RequestMapping(value = {"/register"})
+    public String register(){
+        return prefix+"lw-re";
     }
 
     /**
