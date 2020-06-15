@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
 
     private static final Logger log= LoggerFactory.getLogger(UserController.class);
-    private static final String prefix="/blog/";
+    private static final String prefix="blog/";
     @Autowired
     private Environment env;
 

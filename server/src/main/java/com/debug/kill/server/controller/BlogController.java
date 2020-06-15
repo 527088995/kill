@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class BlogController {
 
-    private static final String prefix="/blog/";
+    private static final String prefix="blog/";
 
     @RequestMapping(value = {"/"})
     public String index(){
