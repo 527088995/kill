@@ -37,6 +37,7 @@
         <gson.version>2.6.1</gson.version>
         <redisson.version>3.8.2</redisson.version>
         <common-lang.version>3.8</common-lang.version>
+        <kaptcha.version>2.3.2</kaptcha.version>
     </properties>
 
     <parent>
@@ -150,7 +151,12 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
-
+        <!--        验证码-->
+        <dependency>
+            <groupId>com.github.penggle</groupId>
+            <artifactId>kaptcha</artifactId>
+            <version>${kaptcha.version}</version>
+        </dependency>
 
         <!-- zookeeper start -->
         <dependency>

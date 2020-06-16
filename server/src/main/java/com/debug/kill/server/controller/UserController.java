@@ -41,7 +41,7 @@ public class UserController {
         return prefix+"lw-log";
     }
 
-    @RequestMapping(value = {"/register"})
+    @RequestMapping(value = {"user/register"})
     public String register(){
         return prefix+"lw-re";
     }
