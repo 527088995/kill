@@ -1,0 +1,5 @@
+[2020-06-17 09:59:51.488] - 14120 信息 [main] --- org.apache.catalina.core.StandardService: Starting service [Tomcat]
+[2020-06-17 09:59:51.502] - 14120 信息 [main] --- org.apache.catalina.core.StandardEngine: Starting Servlet Engine: Apache Tomcat/8.5.20
+[2020-06-17 09:59:51.869] - 14120 信息 [localhost-startStop-1] --- org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+[2020-06-17 10:00:46.141] - 14120 信息 [http-nio-80-exec-1] --- org.apache.tomcat.util.http.parser.Cookie: A cookie header was received [1592272001; Hm_lpvt_a029e6c6dddf427f4cbfb2b00d7d5311=1592272001] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+[2020-06-17 10:00:46.171] - 14120 信息 [http-nio-80-exec-1] --- org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]: Initializing Spring FrameworkServlet 'dispatcherServlet'
