@@ -53,7 +53,7 @@ public class UserController {
      * @param modelMap
      * @return
      */
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/loginss",method = RequestMethod.POST)
     public String login(@RequestParam String userName, @RequestParam String password, ModelMap modelMap){
         String errorMsg="";
         try {
