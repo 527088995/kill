@@ -9,9 +9,6 @@
     <!-- jQuery UI 1.11.4 -->
     <script th:src="@{static/plugins/jquery-ui/jquery-ui.min.js}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-    </script>
     <!-- Bootstrap 4 -->
     <script th:src="@{static/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
     <!-- ChartJS -->
@@ -38,5 +35,13 @@
     <script th:src="@{static/dist/js/pages/dashboard.js}"></script>
     <!-- AdminLTE for demo purposes -->
     <script th:src="@{static/dist/js/demo.js}"></script>
+
+    <!-- layer -->
+    <script th:src="@{static/layui/layer3.1.1/layer/layer.js}"></script>
+
+    <!-- vue -->
+    <script th:src="@{static/vue/vue-2.6.11/dist/vue.min.js}"></script>
+    <!-- axios ajax -->
+    <script th:src="@{static/vue/plugins/axios-0.19.2/dist/axios.min.js}"></script>
 </div>
 </html>

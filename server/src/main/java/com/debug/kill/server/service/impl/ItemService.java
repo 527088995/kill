@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ public class ItemService implements IItemService{
 
     private static final Logger log= LoggerFactory.getLogger(ItemService.class);
 
-    @Autowired
+    @Resource
     private ItemKillMapper itemKillMapper;
 
 
