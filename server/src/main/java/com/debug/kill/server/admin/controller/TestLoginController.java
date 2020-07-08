@@ -39,7 +39,7 @@ public class TestLoginController {
      * @param modelMap
      * @return
      */
-    @RequestMapping(value = "/login/doLogin", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam String usernm, @RequestParam String passwd, ModelMap modelMap) {
         String errorMsg = "";
         try {
@@ -59,7 +59,8 @@ public class TestLoginController {
             e.printStackTrace();
         }
         if (StringUtils.isBlank(errorMsg)) {
-            return "redirect:" + prefix + "starter";
+            modelMap.addAttribute("returnUrl", "/starter");
+            return "redirect:/starter";
         } else {
             modelMap.addAttribute("errorMsg", errorMsg);
             return "login";

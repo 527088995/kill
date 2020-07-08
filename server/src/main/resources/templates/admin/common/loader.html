@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="loader">
+    <!-- 第一种方式:<base> 标签为页面上的所有链接规定默认地址或默认目标 -->
+    <base th:href="@{/}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <!-- <link rel="stylesheet" href="easyui/themes/default/easyui.css"> -->
+    <link id="dlink" rel="stylesheet" type="text/css" th:href="@{static/easyui/insdep/insdep.easyui.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{static/easyui/insdep/icon.css}">
+    <link rel="stylesheet" th:href="@{static/easyui/insdep/font-awesome.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{static/easyui/easyui/themes/color.css}">
+    <link rel="stylesheet" th:href="@{static/easyui/dist/sidebar-menu.css}">
+    <link rel="stylesheet" th:href="@{static/easyui/insdep/insdep.theme_default.css}">
+    <!-- <link rel="stylesheet" type="text/css" th:href="css/demo1.css"> -->
+    <script type="text/javascript" th:src="@{static/easyui/easyui/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{static/easyui/insdep/jquery.easyui.min.js}"></script>
+    <script type="text/javascript" th:src="@{static/easyui/insdep/insdep.extend.min.js}"></script>
+    <script type="text/javascript" th:src="@{static/easyui/dist/sidebar-menu.js}"></script>
+    <script type="text/javascript" th:src="@{static/easyui/insdep/master.js}"></script>
+</head>
+
+</html>

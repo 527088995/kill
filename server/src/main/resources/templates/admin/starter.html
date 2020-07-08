@@ -1,329 +1,591 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | Starter</title>
+<html xmlns:th="http://www.thymeleaf.org">
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="static/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="static/dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<div th:replace="admin/common/loader :: loader"></div>
 
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
-    </ul>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
+<body>
+<div class="easyui-layout theme-layout" fit="true">
+    <div class="theme-header-layout font-white" data-options="region:'north'"
+         style="line-height: 46px;font-size: 20px; border: none;height: 46px;">
+        <i class="fa fa-hand-o-right" aria-hidden="true"></i>这是一行标题
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">切换导航</span>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="static/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="static/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="static/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-            class="fas fa-th-large"></i></a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="static/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="static/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Starter Pages
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
-                </a>
-              </li>
+        <div class="navbar-custom-menu font-white" style="font-size: 12px">
+            <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-expeditedssl"></i>
+                        <span>修改密码</span>
+                    </a>
+                </li>
+                <!-- Notifications: style can be found in dropdown.less -->
+                <li class="dropdown notifications-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell-o"></i>
+                        <span>版本日志</span>
+                    </a>
+                </li>
+                <!-- Tasks: style can be found in dropdown.less -->
+                <li class="dropdown tasks-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user-circle-o"></i>
+                        <span>基础管理员</span>
+                    </a>
+                </li>
+                <!-- Control Sidebar Toggle Button -->
+                <li>
+                    <a href="#">
+                        <i class="fa fa-power-off"></i>
+                        退出
+                    </a>
+                </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Starter Page</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div><!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-md-6 -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+    <div class="theme-left-layout " data-options="region:'west'" style="width: 200px;border:none">
+        <!-- #West 左侧布局 -->
+        <div class="menu-warper" style="position: relative;width: 190px;height: auto">
+            <div class="main-sidebar">
+                <div class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">导航菜单</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>界面选项</span>
+                                <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle-o"></i> 置顶</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle-o"></i> 盒子</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle-o"></i> 固定</a>
+                                </li>
+                                <li class="">
+                                    <a href="#">
+                                        <i class="fa fa-circle-o"></i> 折叠</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-th"></i>
+                                <span>窗口小部件</span>
+                                <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-calendar"></i>
+                                <span>日历</span>
+                                <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-envelope"></i>
+                                <span>邮箱</span>
+                                <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
+                            </a>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-share"></i>
+                                <span>多级</span>
+                                <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle-o"></i> 一级菜单1</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle-o"></i> 一级菜单2
+                                        <span class="pull-right-container">
+                                                <i class="fa fa-angle-left pull-right"></i>
+                                            </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-circle-o"></i> 二级菜单1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-circle-o"></i> 二级菜单2
+                                                <span class="pull-right-container">
+                                                        <i class="fa fa-angle-left pull-right"></i>
+                                                    </span>
+                                            </a>
+                                            <ul class="treeview-menu">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-circle-o"></i> 三级菜单1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-circle-o"></i> 三级菜单2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle-o"></i> 一级菜单3</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-book"></i>
+                                <span>文档</span>
+                            </a>
+                        </li>
+                        <li class="header">标签</li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle-o text-red"></i>
+                                <span>重要</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle-o text-yellow"></i>
+                                <span>警示</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-circle-o text-aqua"></i>
+                                <span>提示</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+    <div class="theme-center-layout" data-options="region:'center'" title="content">
+        <!-- #Center 中心布局 -->
+        <!--内部布局-->
+        <div class="easyui-layout theme-inside-layout" data-options="fit:true">
+            <div class="theme-inside-header-layout " data-options="region:'north'" region="north " style="height:36px;">
+                <div style="float:right;margin:2px 5px 0 0">
+                    <input class="easyui-searchbox" prompt="Please input value" style="width:300px">
+                </div>
+                <div style="padding:2px 5px;">
+                    <a href="#" class="easyui-linkbutton" data-options="plain:true">Home</a>
+                    <a href="#" class="easyui-splitbutton" data-options="menu:'#mm1',iconCls:'icon-edit'">Edit</a>
+                    <a href="#" class="easyui-menubutton" data-options="menu:'#mm2',iconCls:'icon-help'">Help</a>
+                    <a href="#" class="easyui-linkbutton"
+                       data-options="plain:true,iconCls:'icon-save',toggle:true">Save</a>
+                    <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-print'">Print</a>
+                </div>
+                <div id="mm1" style="width:150px;">
+                    <div data-options="iconCls:'icon-undo'">Undo</div>
+                    <div data-options="iconCls:'icon-redo',disabled:true">Redo</div>
+                    <div class="menu-sep"></div>
+                    <div>Cut</div>
+                    <div>Copy</div>
+                    <div>Paste</div>
+                    <div class="menu-sep"></div>
+                    <div>
+                        <span>Toolbar</span>
+                        <div style="width:200px;">
+                            <div>Address</div>
+                            <div>Link</div>
+                            <div>Navigation Toolbar</div>
+                            <div>Bookmark Toolbar</div>
+                            <div class="menu-sep"></div>
+                            <div>New Toolbar...</div>
+                        </div>
+                    </div>
+                    <div data-options="iconCls:'icon-remove'">Delete</div>
+                    <div>Select All</div>
+                </div>
+                <div id="mm2" style="width:100px;">
+                    <div>Help</div>
+                    <div>Update</div>
+                    <div>About</div>
+                </div>
+            </div>
+            <div class="theme-inside-left-layout" data-options="region:'west'" title="West" split="true"
+                 style="width:210px">
+                <div class="easyui-accordion" border="false" fit="true">
+                    <div title="Title1" style="padding:10px">
+                        <p>Accordion content1.</p>
+                    </div>
+                    <div title="Title2" style="padding:10px">
+                        <p>Accordion content2.</p>
+                    </div>
+                </div>
+            </div>
+            <!--                <div class="theme-inside-right-layout" data-options="region:'east'" title="East" split="true" style="width:180px">-->
+            <!--                    <ul class="easyui-tree">-->
+            <!--                        <li>-->
+            <!--                            <span>My Documents</span>-->
+            <!--                            <ul>-->
+            <!--                                <li data-options="state:'closed'">-->
+            <!--                                    <span>Photos</span>-->
+            <!--                                    <ul>-->
+            <!--                                        <li>-->
+            <!--                                            <span>Friend</span>-->
+            <!--                                        </li>-->
+            <!--                                        <li>-->
+            <!--                                            <span>Wife</span>-->
+            <!--                                        </li>-->
+            <!--                                        <li>-->
+            <!--                                            <span>Company</span>-->
+            <!--                                        </li>-->
+            <!--                                    </ul>-->
+            <!--                                </li>-->
+            <!--                                <li>-->
+            <!--                                    <span>Program Files</span>-->
+            <!--                                    <ul>-->
+            <!--                                        <li>Intel</li>-->
+            <!--                                        <li>Java</li>-->
+            <!--                                        <li>Microsoft Office</li>-->
+            <!--                                        <li>Games</li>-->
+            <!--                                    </ul>-->
+            <!--                                </li>-->
+            <!--                                <li>index.html</li>-->
+            <!--                                <li>about.html</li>-->
+            <!--                                <li>welcome.html</li>-->
+            <!--                            </ul>-->
+            <!--                        </li>-->
+            <!--                    </ul>-->
+            <!--                </div>-->
+            <div class="theme-inside-center-layout" data-options="region:'center'">
+                <div class="easyui-tabs" border="false" fit="true">
+                    <div title="Tab1">
+                        <table class="easyui-datagrid" rownumbers="true" striped="true" border="false" fit="true"
+                               fitColumns="true" pagination="true"
+                               remoteSort="false">
+                            <thead>
+                            <tr>
+                                <th data-options="field:'itemid',sortable:true,width:100">Item ID</th>
+                                <th data-options="field:'productid',sortable:true,width:100">Product</th>
+                                <th data-options="field:'listprice',align:'right',sortable:true,width:100">List Price
+                                </th>
+                                <th data-options="field:'attr1',width:250">Attribute</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>EST-1</td>
+                                <td>FI-SW-01</td>
+                                <td>36.50</td>
+                                <td>Large</td>
+                            </tr>
+                            <tr>
+                                <td>EST-10</td>
+                                <td>K9-DL-01</td>
+                                <td>18.50</td>
+                                <td>Spotted Adult Female</td>
+                            </tr>
+                            <tr>
+                                <td>EST-11</td>
+                                <td>RP-SN-01</td>
+                                <td>28.50</td>
+                                <td>Venomless</td>
+                            </tr>
+                            <tr>
+                                <td>EST-12</td>
+                                <td>RP-SN-01</td>
+                                <td>26.50</td>
+                                <td>Rattleless</td>
+                            </tr>
+                            <tr>
+                                <td>EST-13</td>
+                                <td>RP-LI-02</td>
+                                <td>35.50</td>
+                                <td>Green Adult</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div title="Tab2" closable="true" style="padding:10px">
+                        <p>
+                            <input id="ss" class="easyui-searchbox" style="width:300px"
+                                   data-options="searcher:loadData,prompt:'Please Input Value'"
+                            />
+                        </p>
+                        <p>
+                            <input id="ss1" class="easyui-searchbox" style="width:300px"
+                                   data-options="searcher:loadData,prompt:'Please Input Value'"
+                            />
+                        </p>
+                        <p>
+                            <input id="ss2" class="easyui-searchbox" style="width:300px"
+                                   data-options="searcher:loadData,prompt:'Please Input Value'"
+                            />
+                        </p>
+
+                        <p><input id="vv" class="easyui-validatebox tb" data-options="required:true,validType:'email'"/>
+                        </p>
+                        <input type="text">
+
+
+                        <div id="dd" style="padding: 10px">
+                            <table class="easyui-datagrid" id="dg1" title="Basic DataGrid"
+                                   style="width:700px;height:270px"
+                                   data-options="singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get'">
+                                <thead>
+                                <tr>
+                                    <th data-options="field:'itemid',width:80">Item ID</th>
+                                    <th data-options="field:'productid',width:100">Product</th>
+                                    <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+                                    <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+                                    <th data-options="field:'attr1',width:250">Attribute</th>
+                                    <th data-options="field:'status',width:60,align:'center'">Status</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <div title="Tab3" closable="true" iconCls="icon-save" style="padding:10px">
+                        <p>Tab content3.</p>
+                    </div>
+
+
+                </div>
+            </div>
+            <!--                <div class="" data-options="region:'south'" style="height:230px;padding-top:5px">-->
+            <!--                    <div class="easyui-layout" fit="true" style="height:210px;margin-top1:10px">-->
+            <!--                        <div region="west" split1="true" border="false" style="width:205px;">-->
+            <!--                            <div class="easyui-calendar" fit="true"></div>-->
+            <!--                        </div>-->
+            <!--                        <div region="east" style="width:300px;padding:10px;position:relative">-->
+            <!--                            <div class="easyui-progressbar" value="50" style="width:250px;margin:10px 0"></div>-->
+            <!--                            <div style="margin:20px 0;">-->
+            <!--                                <input class="easyui-slider" style="width:250px" value="20" data-options="-->
+            <!--                                    showTip:true,-->
+            <!--                                    rule: [0,'|',25,'|',50,'|',75,'|',100]-->
+            <!--                                ">-->
+            <!--                            </div>-->
+            <!--                            <div style="margin-top:50px">-->
+            <!--                                <a href="#" class="easyui-tooltip" title="This is a tooltip message">Hover me</a>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--&lt;!&ndash;                        <div region="center" border="false" style="padding:0 5px">&ndash;&gt;-->
+            <!--&lt;!&ndash;                            <div class="easyui-panel" fit="true" style="padding:10px;">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                <div style="font-weight:bold;font-size:16px;margin-bottom:10px">Form Fields</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                <form id="ff" method="post">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <div style="margin-bottom:20px">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <input class="easyui-textbox" name="name" style="width:100%" data-options="label:'Name:',required:true">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <div style="margin-bottom:20px">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <input class="easyui-textbox" name="email" style="width:100%" data-options="label:'Email:',required:true,validType:'email'">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <div style="margin-bottom:20px">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <input class="easyui-textbox" name="subject" style="width:100%" data-options="label:'Subject:',required:true">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <div style="margin-bottom:20px">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <input class="easyui-textbox" name="message" style="width:100%;height:60px" data-options="label:'Message:',multiline:true">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <div style="margin-bottom:20px">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <select class="easyui-combobox" name="language" label="Language" style="width:100%">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="ar">Arabic</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="bg">Bulgarian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="ca">Catalan</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="zh-cht">Chinese Traditional</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="cs">Czech</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="da">Danish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="nl">Dutch</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="en" selected="selected">English</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="et">Estonian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="fi">Finnish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="fr">French</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="de">German</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="el">Greek</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="ht">Haitian Creole</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="he">Hebrew</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="hi">Hindi</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="mww">Hmong Daw</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="hu">Hungarian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="id">Indonesian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="it">Italian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="ja">Japanese</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="ko">Korean</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="lv">Latvian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="lt">Lithuanian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="no">Norwegian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="fa">Persian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="pl">Polish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="pt">Portuguese</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="ro">Romanian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="ru">Russian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="sk">Slovak</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="sl">Slovenian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="es">Spanish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="sv">Swedish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="th">Thai</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="tr">Turkish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="uk">Ukrainian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                            <option value="vi">Vietnamese</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        </select>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                </form>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                <div style="margin-bottom:20px">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <input class="easyui-textbox" label="TextBox:" required buttonText="Button" iconCls="icon-ok" style="width:100%">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                <div style="margin-bottom:20px">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <select class="easyui-combobox" label="ComboBox:" name="language" style="width:100%">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="ar">Arabic</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="bg">Bulgarian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="ca">Catalan</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="zh-cht">Chinese Traditional</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="cs">Czech</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="da">Danish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="nl">Dutch</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="en" selected="selected">English</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="et">Estonian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="fi">Finnish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="fr">French</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="de">German</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="el">Greek</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="ht">Haitian Creole</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="he">Hebrew</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="hi">Hindi</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="mww">Hmong Daw</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="hu">Hungarian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="id">Indonesian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="it">Italian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="ja">Japanese</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="ko">Korean</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="lv">Latvian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="lt">Lithuanian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="no">Norwegian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="fa">Persian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="pl">Polish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="pt">Portuguese</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="ro">Romanian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="ru">Russian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="sk">Slovak</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="sl">Slovenian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="es">Spanish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="sv">Swedish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="th">Thai</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="tr">Turkish</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="uk">Ukrainian</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                        <option value="vi">Vietnamese</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    </select>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                <div style="margin-bottom:20px">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <input class="easyui-timespinner" label="TimeSpinner:" showSeconds="true" style="width:100%">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                <div style="margin-bottom:20px">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <input class="easyui-datetimebox" label="DateTimeBox:" showSeconds="true" style="width:100%">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                <div style="margin:10px 0;">&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'">Add</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">Remove</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save',toggle:true">Save</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cut',disabled:true">Cut</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                    <a href="#" class="easyui-linkbutton">Text Button</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+            <!--                    </div>-->
+            <!--                </div>-->
+
+        </div>
+        <div class="easyui-dialog" title="Dialog" iconCls="icon-save"
+             style="width:300px;left:70%;top:300px;padding:10px" data-options="
+                resizable:true,
+                closed:false,
+                toolbar:[{
+                    iconCls:'icon-add'
+                },{
+                    iconCls:'icon-edit'
+                }],
+                buttons:[{
+                    text:'Ok',
+                    iconCls:'icon-ok'
+                },{
+                    text:'Cancel',
+                    iconCls:'icon-cancel'
+                }]
+            ">
+            <p>Dialog Content.</p>
+        </div>
+    </div>
+    <div class="theme-footer-layout color-my-red font-white" style="line-height: 46px;border: none;height: 46px;"
+         data-options="region:'south'">
+        <!-- #South 底部布局 -->
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.3.7
+        </div>
+        <strong>Copyright © 2014-2016
+            <a class="font-blue" href="http://web.corp.gwm.com/">Almsaeed Studio</a>.</strong> All rights reserved.
+    </div>
 </div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="static/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="static/dist/js/adminlte.min.js"></script>
 </body>
+<script>
+    $(function () {
+        $('#dd').dialog({
+            fit: false,
+            title: 'My Dialog',
+            resizable: true,
+            closed: true,
+            cache: false,
+            modal: true,
+            buttons: [{
+                text: 'Ok',
+                iconCls: 'icon-ok'
+            }, {
+                text: 'Cancel',
+                iconCls: 'icon-cancel'
+            }]
+
+        });
+    })
+
+    function loadData() {
+        console.log(this);
+        var url;
+        var id = $(this).attr('id');
+        id == 'ss1' ? url = 'datagrid_data2.json' : url = 'datagrid_data1.json';
+        $('#dg1').datagrid({
+            url: url,
+            onSelect: function (index, row) {
+                syncData(id, row);
+            }
+        });
+        $('#dd').dialog('open');
+
+    }
+
+    function syncData(id, row) {
+        console.log(id, row);
+        $("#" + id).textbox('setValue', row.productid)
+
+    }
+</script>
+
+
 </html>
