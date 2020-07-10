@@ -10,7 +10,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+
+import static com.debug.kill.server.enums.Const.NONE_PERMISSION_RES;
 
 /**
  * shiro的通用化配置
@@ -43,7 +46,7 @@ public class ShiroConfig {
         /**
          * 默认的登陆访问url
          */
-        shiroFilter.setLoginUrl("/login");
+        shiroFilter.setLoginUrl("/toLogin");
         /**
          * 登陆成功后跳转的url
          */
@@ -68,11 +71,11 @@ public class ShiroConfig {
          *
          */
         Map<String, String> filterChainDefinitionMap = new HashMap<>();
-        filterChainDefinitionMap.put("/toLogin", "anon");
+        for (String nonePermissionRe : NONE_PERMISSION_RES) {
+            filterChainDefinitionMap.put(nonePermissionRe, "anon");
+        }
 
-        filterChainDefinitionMap.put("/**", "anon");
-
-        filterChainDefinitionMap.put("/kill/execute/*", "authc");
+        filterChainDefinitionMap.put("/starter*", "authc");
         filterChainDefinitionMap.put("/item/detail/*", "authc");
 
         shiroFilter.setFilterChainDefinitionMap(filterChainDefinitionMap);
