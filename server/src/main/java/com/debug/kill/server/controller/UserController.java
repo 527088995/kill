@@ -36,7 +36,7 @@ public class UserController {
      * 跳到登录页
      * @return
      */
-    @RequestMapping(value = {"/toLogin"})
+    @RequestMapping(value = {"/toLogins"})
     public String toLogin(){
         return prefix+"lw-log";
     }
@@ -87,7 +87,7 @@ public class UserController {
      * 退出登录
      * @return
      */
-    @RequestMapping(value = "/logout")
+    @RequestMapping(value = "/logouts")
     public String logout(){
         SecurityUtils.getSubject().logout();
         return "login";

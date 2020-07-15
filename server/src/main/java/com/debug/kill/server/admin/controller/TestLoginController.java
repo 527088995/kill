@@ -28,7 +28,7 @@ public class TestLoginController {
     private UserService userService;
 
 
-    @RequestMapping(value = {"/login/toLogin"})
+    @RequestMapping(value = {"/toLogin"})
     public String fullwidth() {
         return prefix + "examples/login";
     }
@@ -72,12 +72,10 @@ public class TestLoginController {
      *
      * @return
      */
-    @RequestMapping(value = "/login/logout")
+    @RequestMapping(value = "/logout")
     public String logout() {
         SecurityUtils.getSubject().logout();
-        return prefix + "examples/login"
-
-                ;
+        return prefix + "examples/login";
     }
 }
 

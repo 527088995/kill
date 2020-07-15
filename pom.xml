@@ -39,6 +39,7 @@
         <common-lang.version>3.8</common-lang.version>
         <kaptcha.version>2.3.2</kaptcha.version>
         <hutool.version>4.1.12</hutool.version>
+        <hutool.version>4.1.12</hutool.version>
         <mybatis-plus.version>2.1.8</mybatis-plus.version>
     </properties>
 
