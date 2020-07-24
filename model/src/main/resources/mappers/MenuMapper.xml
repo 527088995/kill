@@ -51,7 +51,7 @@
         sys_relation where role_id = #{roleId}
     </select>
 
-    <select id="menuTreeList" resultType="com.debug.kill.model.node.ZTreeNode">
+    <select id="menuTreeList" resultType="com.debug.kill.model.node.ZMenuTree">
         SELECT
         m1.menu_id AS id,
         (
@@ -62,8 +62,9 @@
         m2.menu_id
         END
         ) AS pId,
-        m1.name
-        AS name,
+        m1.name AS name,
+        m1.url AS url,
+        m1.icon AS icon,
         (
         CASE
         WHEN (m2.menu_id = 0 OR m2.menu_id IS NULL) THEN
@@ -79,7 +80,36 @@
         m1.menu_id ASC
     </select>
 
-    <select id="menuTreeListByMenuIds" resultType="com.debug.kill.model.node.ZTreeNode">
+    <select id="fathermenuTreeList" resultType="com.debug.kill.model.node.ZMenuTree">
+        SELECT
+        m1.menu_id AS id,
+        (
+        CASE
+        WHEN (m2.menu_id = 0 OR m2.menu_id IS NULL) THEN
+        0
+        ELSE
+        m2.menu_id
+        END
+        ) AS pId,
+        m1.name AS name,
+        m1.url AS url,
+        m1.icon AS icon,
+        (
+        CASE
+        WHEN (m2.menu_id = 0 OR m2.menu_id IS NULL) THEN
+        '1'
+        ELSE
+        '0'
+        END
+        ) as "open"
+        FROM
+        sys_menu m1
+        LEFT join sys_menu m2 ON m1.pcode = m2.code where m1.pcode="0"
+        ORDER BY
+        m1.menu_id ASC
+    </select>
+
+    <select id="menuTreeListByMenuIds" resultType="com.debug.kill.model.node.ZMenuTree">
         SELECT
         m1.menu_id AS id,
         (
@@ -90,7 +120,9 @@
         m2.menu_id
         END
         ) AS "pId",
-        m1.name AS name,
+        m1.name AS menuname,
+        m1.url AS url,
+        m1.icon AS icon,
         (
         CASE
         WHEN (m2.menu_id = 0 OR m2.menu_id IS

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.debug.kill.model.entity.Menu;
 import com.debug.kill.model.node.MenuNode;
+import com.debug.kill.model.node.ZMenuTree;
 import com.debug.kill.model.node.ZTreeNode;
 import org.apache.ibatis.annotations.Param;
 
@@ -43,7 +44,8 @@ public interface MenuMapper extends BaseMapper<Menu> {
      * @return
      * @date 2017年2月19日 下午1:33:51
      */
-    List<ZTreeNode> menuTreeList();
+    List<ZMenuTree> menuTreeList();
+    List<ZMenuTree> fathermenuTreeList();
 
     /**
      * 获取菜单列表树
