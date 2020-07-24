@@ -8,6 +8,7 @@ import com.debug.kill.model.dto.MenuDto;
 import com.debug.kill.model.entity.Menu;
 import com.debug.kill.model.mapper.MenuMapper;
 import com.debug.kill.model.node.MenuNode;
+import com.debug.kill.model.node.ZMenuTree;
 import com.debug.kill.model.node.ZTreeNode;
 import com.debug.kill.server.common.constant.state.MenuStatus;
 import com.debug.kill.server.common.exception.BizExceptionEnum;
@@ -203,7 +204,7 @@ public class MenuServiceImpl  extends ServiceImpl<MenuMapper, Menu> implements I
      * @return
      * @date 2017年2月19日 下午1:33:51
      */
-    public List<ZTreeNode> menuTreeList() {
+    public List<ZMenuTree> menuTreeList() {
         return this.baseMapper.menuTreeList();
     }
 

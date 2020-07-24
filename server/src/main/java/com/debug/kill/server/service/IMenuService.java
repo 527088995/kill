@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.service.IService;
 import com.debug.kill.model.dto.MenuDto;
 import com.debug.kill.model.entity.Menu;
 import com.debug.kill.model.node.MenuNode;
+import com.debug.kill.model.node.ZMenuTree;
 import com.debug.kill.model.node.ZTreeNode;
 import org.apache.ibatis.annotations.Param;
 
@@ -57,7 +58,7 @@ public interface IMenuService  extends IService<Menu> {
      * @return
      * @date 2017年2月19日 下午1:33:51
      */
-    List<ZTreeNode> menuTreeList();
+    List<ZMenuTree> menuTreeList();
 
     /**
      * 获取菜单列表树

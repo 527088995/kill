@@ -19,6 +19,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.debug.kill.model.dto.MenuDto;
 import com.debug.kill.model.entity.Menu;
+import com.debug.kill.model.node.ZMenuTree;
 import com.debug.kill.model.node.ZTreeNode;
 import com.debug.kill.server.admin.base.controller.BaseController;
 import com.debug.kill.server.admin.base.response.ResponseData;
@@ -236,7 +237,7 @@ public class MenuController extends BaseController {
      */
     @RequestMapping(value = "/menuTreeList")
     @ResponseBody
-    public List<ZTreeNode> menuTreeList() {
+    public List<ZMenuTree> menuTreeList() {
         return this.menuService.menuTreeList();
     }
 
@@ -248,15 +249,18 @@ public class MenuController extends BaseController {
      */
     @RequestMapping(value = "/selectMenuTreeList")
     @ResponseBody
-    public List<ZTreeNode> selectMenuTreeList() {
-        List<ZTreeNode> roleTreeList = this.menuService.menuTreeList();
-        roleTreeList.add(ZTreeNode.createParent());
+    public List<ZMenuTree> selectMenuTreeList() {
+        List<ZMenuTree> fatherTreeList = this.menuService.menuTreeList();
+        List<ZMenuTree> roleTreeList = this.menuService.menuTreeList();
+        for (ZMenuTree zMenuTree:roleTreeList){
+
+        }
         return roleTreeList;
     }
 
     /**
      * 获取角色的菜单列表
-     *
+     *http://127.0.0.1/menu/menuTreeListByRoleId/5
      * @author ...
      * @Date 2018/12/23 5:54 PM
      */
@@ -265,7 +269,7 @@ public class MenuController extends BaseController {
     public List<ZTreeNode> menuTreeListByRoleId(@PathVariable Long roleId) {
         List<Long> menuIds = this.menuService.getMenuIdsByRoleId(roleId);
         if (ToolUtil.isEmpty(menuIds)) {
-            return this.menuService.menuTreeList();
+            return null;
         } else {
             return this.menuService.menuTreeListByMenuIds(menuIds);
         }
