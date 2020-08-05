@@ -103,6 +103,12 @@
             dataType: "json",//预期服务器返回的数据类型
             url: "/users/login",//url
             data: $('#login_form').serialize(),
+            success: function (ret) {
+                showErrorMsg(ret.msg);
+            },
+            error: function (ret) {
+                alert(ret.msg);
+            }
         });
     }
 

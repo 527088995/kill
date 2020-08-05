@@ -42,7 +42,7 @@ $.sidebarMenu = function (menu) {
 
       var url = $this.attr("gherf");
       console.log(url)
-      // addTab(tabTitle, url);
+      addTab(tabTitle, url);
       if ($(".theme-left-layout ").hasClass('theme-nav-mini')) {
         $(".treeview-menu.menu-open").css('display',"");
         $(".treeview-menu.menu-open").parent('li').removeClass('active');
@@ -58,11 +58,22 @@ $.sidebarMenu = function (menu) {
         $(".treeview-menu li").removeClass('active')
         $this.parent("li").addClass("active")
       }
-
     }
     //if this isn't a link, prevent the page from being redirected
     if (checkElement.is('.treeview-menu')) {
       e.preventDefault();
     }
   });
+}
+function addTab(title, url){
+  if ($('#tt').tabs('exists', title)){
+    $('#tt').tabs('select', title);
+  } else {
+    var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:100%;"></iframe>';
+    $('#tt').tabs('add',{
+      title:title,
+      content:content,
+      closable:true
+    });
+  }
 }

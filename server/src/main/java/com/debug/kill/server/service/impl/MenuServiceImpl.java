@@ -16,6 +16,7 @@ import com.debug.kill.server.exception.RequestEmptyException;
 import com.debug.kill.server.exception.ServiceException;
 import com.debug.kill.server.service.IMenuService;
 import com.debug.kill.server.utils.ToolUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,7 +33,7 @@ import java.util.Map;
  * @date 2017-05-05 22:20
  */
 @Service
-public class MenuServiceImpl  extends ServiceImpl<MenuMapper, Menu> implements IMenuService {
+public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IMenuService {
 
     @Resource
     private MenuMapper menuMapper;
@@ -51,7 +52,7 @@ public class MenuServiceImpl  extends ServiceImpl<MenuMapper, Menu> implements I
         }
 
         //判断是否已经存在该编号
-       // String existedMenuName = ConstantFactory.me().getMenuNameByCode(menuDto.getCode());
+        // String existedMenuName = ConstantFactory.me().getMenuNameByCode(menuDto.getCode());
 //        if (ToolUtil.isNotEmpty(existedMenuName)) {
 //            throw new ServiceException(BizExceptionEnum.EXISTED_THE_MENU);
 //        }
@@ -205,7 +206,21 @@ public class MenuServiceImpl  extends ServiceImpl<MenuMapper, Menu> implements I
      * @date 2017年2月19日 下午1:33:51
      */
     public List<ZMenuTree> menuTreeList() {
-        return this.baseMapper.menuTreeList();
+        List<ZMenuTree> fatherMenus = this.baseMapper.fathermenuTreeList();
+        List<ZMenuTree> menuTrees = this.baseMapper.menuTreeList();
+        List<ZMenuTree> result = new ArrayList<>();
+        for (ZMenuTree father : fatherMenus) {
+            for (ZMenuTree menu : menuTrees) {
+                if (StringUtils.isNotEmpty(menu.getPId().toString())) {
+                    if (menu.getPId().equals(father.getId())) {
+                        menu.setMenus(null);
+                        father.getMenus().add(menu);
+                    }
+                }
+            }
+            result.add(father);
+        }
+        return result;
     }
 
     /**

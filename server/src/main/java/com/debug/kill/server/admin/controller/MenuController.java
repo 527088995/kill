@@ -181,7 +181,7 @@ public class MenuController extends BaseController {
         }
 
         //缓存菜单的名称
-       // LogObjectHolder.me().set(ConstantFactory.me().getMenuName(menuId));
+        // LogObjectHolder.me().set(ConstantFactory.me().getMenuName(menuId));
 
         this.menuService.delMenuContainSubMenus(menuId);
 
@@ -251,17 +251,14 @@ public class MenuController extends BaseController {
     @RequestMapping(value = "/selectMenuTreeList")
     @ResponseBody
     public List<ZMenuTree> selectMenuTreeList() {
-        List<ZMenuTree> fatherTreeList = this.menuService.menuTreeList();
         List<ZMenuTree> roleTreeList = this.menuService.menuTreeList();
-        for (ZMenuTree zMenuTree:roleTreeList){
-
-        }
         return roleTreeList;
     }
 
     /**
      * 获取角色的菜单列表
-     *http://127.0.0.1/menu/menuTreeListByRoleId/5
+     * http://127.0.0.1/menu/menuTreeListByRoleId/5
+     *
      * @author ...
      * @Date 2018/12/23 5:54 PM
      */
