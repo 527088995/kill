@@ -1,25 +1,11 @@
 package com.debug.kill.config.web;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.druid.support.http.WebStatFilter;
-import com.alibaba.druid.support.spring.stat.BeanTypeAutoProxyCreator;
-import com.alibaba.druid.support.spring.stat.DruidStatInterceptor;
 import com.debug.kill.config.properties.GunsProperties;
-import com.debug.kill.core.listener.ConfigListener;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;
-import org.springframework.aop.Advisor;
-import org.springframework.aop.support.DefaultPointcutAdvisor;
-import org.springframework.aop.support.JdkRegexpMethodPointcut;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.context.request.RequestContextListener;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.Properties;
@@ -46,7 +32,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //            registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 //        }
 //        //本应用
-//        //registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/assets/");
+//        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/assets/");
 //    }
 //
 //    /**
@@ -132,10 +118,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //    public ServletListenerRegistrationBean<RequestContextListener> requestContextListenerRegistration() {
 //        return new ServletListenerRegistrationBean<>(new RequestContextListener());
 //    }
-//
-//    /**
-//     * ConfigListener注册
-//     */
+
+    /**
+     * ConfigListener注册
+     */
 //    @Bean
 //    public ServletListenerRegistrationBean<ConfigListener> configListenerRegistration() {
 //        return new ServletListenerRegistrationBean<>(new ConfigListener());

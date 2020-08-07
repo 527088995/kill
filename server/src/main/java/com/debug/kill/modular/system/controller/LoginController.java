@@ -40,8 +40,6 @@ public class LoginController extends BaseController {
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
-
-
         return "/login.html";
         //return "/index.html";
     }

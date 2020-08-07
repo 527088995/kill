@@ -65,6 +65,6 @@ public interface Const {
     /**
      * 不需要权限验证的资源表达式
      */
-    List<String> NONE_PERMISSION_RES = CollectionUtil.newLinkedList( "/static/**", "/login", "/toLogin", "/**");
+    List<String> NONE_PERMISSION_RES = CollectionUtil.newLinkedList("/assets/**", "/static/**", "/login", "/toLogin", "/**");
 
 }
