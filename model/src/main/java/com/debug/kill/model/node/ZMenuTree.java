@@ -17,6 +17,8 @@ package com.debug.kill.model.node;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -27,6 +29,7 @@ import java.util.List;
  */
 @Data
 public class ZMenuTree {
+
 
     /**
      * 节点id
@@ -62,7 +65,7 @@ public class ZMenuTree {
      */
     private String icon;
 
-    public List<ZMenuTree> children;
+    public List<ZMenuTree> menus = new ArrayList<>();//初始化子集
 
     /**
      * 创建ztree的父级节点

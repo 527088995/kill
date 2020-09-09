@@ -62,7 +62,7 @@
         m2.menu_id
         END
         ) AS pId,
-        m1.name AS name,
+        m1.name AS menuname,
         m1.url AS url,
         m1.icon AS icon,
         (
@@ -91,7 +91,7 @@
         m2.menu_id
         END
         ) AS pId,
-        m1.name AS name,
+        m1.name AS menuname,
         m1.url AS url,
         m1.icon AS icon,
         (

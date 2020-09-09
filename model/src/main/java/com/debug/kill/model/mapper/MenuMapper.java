@@ -45,6 +45,7 @@ public interface MenuMapper extends BaseMapper<Menu> {
      * @date 2017年2月19日 下午1:33:51
      */
     List<ZMenuTree> menuTreeList();
+
     List<ZMenuTree> fathermenuTreeList();
 
     /**
