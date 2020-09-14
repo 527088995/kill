@@ -131,8 +131,10 @@ public class LogAop {
                 if (BussinessType.ADD_EDIT_STATUS.equals(type)) {
                     if (StringUtils.isNoneEmpty(keys.toString())) {
                         for (Map<String, Object> dataRow : obj1) {
-                            msg = Contrast.contrastObj(dictMap, key, dataRow, parameters, propertiesEnv.getClassPath());
-                            bussinessNames = bussinessName + "修改";
+                            if (keys.equals(dataRow.get(key))) {
+                                msg = Contrast.contrastObj(dictMap, key, dataRow, parameters, propertiesEnv.getClassPath());
+                                bussinessNames = bussinessName + "修改";
+                            }
                         }
                     } else {
                         msg = Contrast.parseMutiKey(dictMap, key, parameters, propertiesEnv.getClassPath());
