@@ -1,7 +1,7 @@
 package com.debug.kill.log.annotation;
 
 
-import com.debug.kill.server.utils.SpringContextHolder;
+import com.debug.kill.log.util.SpringContextHolder;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 public class RedisDb<T> {
@@ -11,10 +11,13 @@ public class RedisDb<T> {
 
     private StringRedisTemplate baseMapper;
 
+    private PropertiesEnv propertiesEnv;
+
 
     private RedisDb(Class clazz) {
         this.clazz = clazz;
         this.baseMapper = (StringRedisTemplate) SpringContextHolder.getBean(clazz);
+        this.propertiesEnv = (PropertiesEnv) SpringContextHolder.getBean(clazz);
     }
 
 
@@ -27,10 +30,16 @@ public class RedisDb<T> {
         return this.baseMapper;
     }
 
+    public PropertiesEnv getPropertiesEnv() {
+        return this.propertiesEnv;
+    }
+
 
     public static <T> T getMapper(Class<T> clazz) {
         return SpringContextHolder.getBean(clazz);
     }
-
+    public static <T> T getPropertiesEnv(Class<T> clazz) {
+        return SpringContextHolder.getBean(clazz);
+    }
 
 }

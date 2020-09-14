@@ -1,9 +1,9 @@
 package com.debug.kill.server.common.constant.factory;
 
 import cn.hutool.core.lang.Dict;
+import com.debug.kill.log.util.SpringContextHolder;
 import com.debug.kill.model.entity.Menu;
 import com.debug.kill.model.mapper.MenuMapper;
-import com.debug.kill.server.utils.SpringContextHolder;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package com.debug.kill.log.factory;
 
-import com.debug.kill.server.utils.SpringContextHolder;
+import com.debug.kill.log.util.SpringContextHolder;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 @Component
 @Scope(scopeName = WebApplicationContext.SCOPE_SESSION)
-public class LogObjectHolder implements Serializable {
+public class LogObjectHolder implements Serializable{
 
     private Object object = null;
 
@@ -22,7 +22,7 @@ public class LogObjectHolder implements Serializable {
         return object;
     }
 
-    public static LogObjectHolder me() {
+    public static LogObjectHolder me(){
         LogObjectHolder bean = SpringContextHolder.getBean(LogObjectHolder.class);
         return bean;
     }
